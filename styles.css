@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+body {
+    background-color: #181825;
+    margin: 50px;
+    
+    font-family: Arial;
+    color: #b1b9d4;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: .2;
+    letter-spacing: 1px;
+}
