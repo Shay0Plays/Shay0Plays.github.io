@@ -10,3 +10,7 @@ body {
     letter-spacing: 1px;
 }
 
+.navbar ul{
+    list-style-type: none;
+    background-color: #11111b;
+}
