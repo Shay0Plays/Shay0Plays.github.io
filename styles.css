@@ -9,3 +9,22 @@ body {
     line-height: .2;
     letter-spacing: 1px;
 }
+.navbar {
+    background-color: #11111b;
+    overflow: hidden;
+}
+.navbar a {
+    float: center;
+    color: #151521;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #151521;
+    color: #b1b9d4;
+}
+
+
+
+
