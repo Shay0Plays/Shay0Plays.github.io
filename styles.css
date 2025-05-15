@@ -61,3 +61,9 @@ body {
     color: #fff;
     text-align: center;
 }
+.splash.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 1s ease, opacity 1s ease;
+}
