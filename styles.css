@@ -9,60 +9,80 @@ body {
     margin: 0px;
 }
 
-.navbar ul{
-    list-style-type: none;
-    background-color: #11111b;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-}
-
-.navbar a{
-    color: #b1b9d4;
-    text-decoration: none;
-    padding: 15px;
-    display: block;
+h1 {
     text-align: center;
 }
 
-.navbar a:hover{
-    color: #b1b9d47e;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.25s;
+/* Navigation Bar */
+
+.navbar {
+    background: #11111b;
+    padding: 0.5em 0;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.navbar li {
+    margin: 0 1.5em;
+}
+.navbar a {
+    color: #cba6f7;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+.navbar a:hover {
+    color: #b1b9d47a;
 }
 
-.navbar li{
-    float: left;
-}
+/* Splash Screen */
 
 .splash {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.8);
+    width: 100vw;
+    height: 100vh;
+    background: rgba(24,24,37,0.98);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: transform 1s ease, opacity 1s ease;
+    transition: opacity 0.8s, transform 0.8s;
 }
 .splash.hide {
-    transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-}
-.splash video {
-    max-width: 80vw;
-    max-height: 40vh;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    transform: translateY(-100%);
 }
 .splash-content {
-    color: #fff;
-    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.splash.hide {
-    transform: translateY(-100%);
+
+#splash-quote {
+    color: #b1b9d4;
+    font-size: 2em;
+    background: none;
+    padding: 0 2em;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
     opacity: 0;
-    pointer-events: none;
-    transition: transform 1s ease, opacity 1s ease;
+    transform: translateY(40px);
+    animation: fadeUp 1.2s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
