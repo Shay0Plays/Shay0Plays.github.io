@@ -22,3 +22,26 @@ window.addEventListener('DOMContentLoaded', function() {
         splash.classList.add('hide');
     });
 });
+
+window.addEventListener('DOMContentLoaded', function() {
+    // Social Modal Logic
+    const socialBtn = document.getElementById('social-btn');
+    const socialModal = document.getElementById('social-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    if (socialBtn && socialModal && closeModal) {
+        socialBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            socialModal.classList.add('show');
+        });
+        closeModal.addEventListener('click', function() {
+            socialModal.classList.remove('show');
+        });
+        // Optional: close modal when clicking outside content
+        socialModal.addEventListener('click', function(e) {
+            if (e.target === socialModal) {
+                socialModal.classList.remove('show');
+            }
+        });
+    }
+});
