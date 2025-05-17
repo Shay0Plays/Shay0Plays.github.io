@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
+    // Splash logic (your existing code)
     const splash = document.getElementById('splash');
     const quoteSpan = document.getElementById('splash-quote');
     const quotes = [
@@ -8,40 +9,44 @@ window.addEventListener('DOMContentLoaded', function() {
         "Lust will cause a man to want something, even if he has everything",
         "Never argue with an idiot. He will drag you down to his level and beat you with experience.",
     ];
-
-    // Pick a random quote
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     quoteSpan.textContent = randomQuote;
+    setTimeout(() => splash.classList.add('hide'), 2500);
+    splash.addEventListener('click', () => splash.classList.add('hide'));
 
-    // Hide splash after 2.5 seconds or on click
-    setTimeout(() => {
-        splash.classList.add('hide');
-    }, 2500);
+    // Page navigation logic with slide animation
+    const navLinks = document.querySelectorAll('.navbar a[data-section]');
+    const sections = document.querySelectorAll('.page-section');
+    let currentSection = document.querySelector('.page-section.active');
 
-    splash.addEventListener('click', () => {
-        splash.classList.add('hide');
-    });
-});
-
-window.addEventListener('DOMContentLoaded', function() {
-    // Social Modal Logic
-    const socialBtn = document.getElementById('social-btn');
-    const socialModal = document.getElementById('social-modal');
-    const closeModal = document.getElementById('close-modal');
-
-    if (socialBtn && socialModal && closeModal) {
-        socialBtn.addEventListener('click', function(e) {
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            socialModal.classList.add('show');
+            const targetId = this.getAttribute('data-section');
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection === currentSection) return;
+
+            // Determine direction
+            const sectionOrder = Array.from(sections);
+            const currentIdx = sectionOrder.indexOf(currentSection);
+            const targetIdx = sectionOrder.indexOf(targetSection);
+            const slideOutClass = targetIdx > currentIdx ? 'slide-out-left' : 'slide-out-right';
+            const slideInClass = targetIdx > currentIdx ? 'slide-in-right' : 'slide-in-left';
+
+            // Slide out current
+            currentSection.classList.remove('active');
+            currentSection.classList.add(slideOutClass);
+
+            // Slide in target
+            targetSection.classList.add(slideInClass, 'active');
+
+            // After animation, clean up classes
+            setTimeout(() => {
+                currentSection.classList.remove(slideOutClass);
+                targetSection.classList.remove(slideInClass);
+                currentSection = targetSection;
+            }, 500);
         });
-        closeModal.addEventListener('click', function() {
-            socialModal.classList.remove('show');
-        });
-        // Optional: close modal when clicking outside content
-        socialModal.addEventListener('click', function(e) {
-            if (e.target === socialModal) {
-                socialModal.classList.remove('show');
-            }
-        });
-    }
+    });
 });

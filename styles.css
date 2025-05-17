@@ -7,6 +7,7 @@ body {
     font-weight: 100;
     letter-spacing: 1px;
     margin: 0px;
+    overflow: hidden;
 }
 
 h1 {
@@ -89,59 +90,21 @@ h1 {
 
 /* Social Page */
 
-.modal {
+.page-section {
     display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0; top: 0; width: 100vw; height: 100vh;
-    background: rgba(24,24,37,0.85);
-    align-items: center;
-    justify-content: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.5s, transform 0.5s;
 }
-.modal.show {
-    display: flex;
-}
-.modal-content {
-    background: #23233a;
-    color: #b1b9d4;
-    padding: 2em 3em;
-    border-radius: 16px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.3);
-    text-align: center;
-    min-width: 250px;
-}
-.modal-content ul {
-    list-style: none;
-    padding: 0;
-}
-.modal-content li {
-    margin: 1em 0;
-}
-.modal-content a {
-    color: #cba6f7;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-.modal-content a:hover {
-    color: #b1b9d4;
-}
-.close {
-    position: absolute;
-    right: 2em;
-    top: 1.5em;
-    font-size: 2em;
-    color: #cba6f7;
-    cursor: pointer;
-}
-ul li i {
-    margin-right: 0.5em;
-    font-size: 1.2em;
-    vertical-align: middle;
+
+.page-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .social-links {
-    font-size: 2em; /* Adjust this value as needed */
+    font-size: 2em;
     text-align: center;
     list-style: none;
     padding: 0;
@@ -162,4 +125,70 @@ ul li i {
 
 .social-links a:hover {
     color: #b1b9d4;
+}
+
+/* Slide animation classes */
+.page-section {
+    display: none;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.5s, transform 0.5s;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 80px; /* adjust if you have a fixed navbar, or remove if not needed */
+    z-index: 1;
+}
+
+.page-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    position: static;
+    z-index: 2;
+}
+
+.page-section.slide-in-left {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideInLeft 0.5s forwards;
+}
+
+.page-section.slide-in-right {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideInRight 0.5s forwards;
+}
+
+.page-section.slide-out-left {
+    display: block;
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideOutLeft 0.5s forwards;
+}
+
+.page-section.slide-out-right {
+    display: block;
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideOutRight 0.5s forwards;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-40px);}
+    to   { opacity: 1; transform: translateX(0);}
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(40px);}
+    to   { opacity: 1; transform: translateX(0);}
+}
+@keyframes slideOutLeft {
+    from { opacity: 1; transform: translateX(0);}
+    to   { opacity: 0; transform: translateX(-40px);}
+}
+@keyframes slideOutRight {
+    from { opacity: 1; transform: translateX(0);}
+    to   { opacity: 0; transform: translateX(40px);}
 }
