@@ -50,3 +50,7 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+function copyThemeLink(id) {
+  const code = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(code);
+}

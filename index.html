@@ -20,8 +20,8 @@
             <li><a href="#" data-section="theme">Theme</a></li>
         </ul>
     </nav>
-    <section id="home" class="page-section active">
-        <h1>Hey Hey!</h1>
+<section id="home" class="page-section active">
+    <h1>Hey Hey!</h1>
         
 
 
@@ -36,9 +36,9 @@
 
 
 
-    </section>
-    <section id="about" class="page-section">
-        <h1>About</h1>
+</section>
+<section id="about" class="page-section">
+    <h1>About</h1>
         
 
 
@@ -50,58 +50,49 @@
 
 
 
-
-    </section>
-    <section id="social" class="page-section">
-        <h1>Socials</h1>
-            <ul class="social-links">
-                <li>
-                    <a href="https://youtube.com/@Shay_Plays" target="_blank">
-                    <i class="fab fa-youtube"></i> YouTube
-                    </a>
-            </li>
+</section>
+<section id="social" class="page-section">
+    <h1>Socials</h1>
+        <ul class="social-links">
             <li>
-                <a href="https://discord.com/" target="_blank">
-                <i class="fab fa-discord"></i> Discord
+                <a href="https://youtube.com/@Shay_Plays" target="_blank">
+                <i class="fab fa-youtube"></i> YouTube
                 </a>
-            </li>
-            <li>
-                <a href="https://open.spotify.com/playlist/2uhFX4THkJKhRHxTRi29AG?si=5eNl3FygQACIArt0OXUgZA" target="_blank">
-                <i class="fab fa-spotify"></i> Spotify
-                </a>
-            </li>
-            <li>
-                <a href="https://www.roblox.com/users/875550742/profile" target="_blank">
-                <i class="fa-solid fa-gamepad"></i> Roblox
-                </a>
-            </li>
-        </ul>
-    </section>
-    <section id="theme" class="page-section">
-        <h1>Theme</h1>
-            <p>
-            I use a custom client theme on Discord to personalize my experience to how I want it to be
-            and make the interface more visually appealing, this includes removing unnecessary clutter and changing the colour.
-            It uses the colours of Catppuccin Mocha, with the mauve accent (Just like the website)
-            If you're interested in checking it out or using it yourself, you can use the css below or just enter the url as an online theme.
-            <br>
-            @import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/colour.theme.css')
-            <br>
-            N.B. This also modifies the SpotifyControls plugin from Vencord
-            <br>
-            If you do not want to use this colour scheme then use the one below, it will also make it so that you can use other themes that change the colour of the client on top of this
-            <br>
-            @import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/nocolour.theme.css')
-            </p>
-
-
-
-
-
-
-
-
-
-
-    </section>
+        </li>
+        <li>
+            <a href="https://discord.com/" target="_blank">
+            <i class="fab fa-discord"></i> Discord
+            </a>
+        </li>
+        <li>
+            <a href="https://open.spotify.com/playlist/2uhFX4THkJKhRHxTRi29AG?si=5eNl3FygQACIArt0OXUgZA" target="_blank">
+            <i class="fab fa-spotify"></i> Spotify
+            </a>
+        </li>
+        <li>
+            <a href="https://www.roblox.com/users/875550742/profile" target="_blank">
+            <i class="fa-solid fa-gamepad"></i> Roblox
+            </a>
+        </li>
+    </ul>
+</section>
+<section id="theme" class="page-section">
+  <h1>Theme</h1>
+  <p>
+    I use a custom client theme on Discord to personalize my experience to how I want it to be
+    and make the interface more visually appealing, this includes removing unnecessary clutter and changing the colour.
+    It uses the colours of Catppuccin Mocha, with the mauve accent (Just like the website)
+    If you're interested in checking it out or using it yourself, you can use the css below or just enter the url as an online theme.
+    <br><br>
+    <code id="colour-theme-link">@import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/colour.theme.css')</code>
+    <button onclick="copyThemeLink('colour-theme-link')">Copy</button>
+    <br><br>
+    If you do not want to use this colour scheme then use the one below, it will also make it so that you can use other themes that change the colour of the client on top of this
+    <br><br>
+    <code id="nocolour-theme-link">@import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/nocolour.theme.css')</code>
+    <button onclick="copyThemeLink('nocolour-theme-link')">Copy</button>
+    <br><br>
+    N.B. This also modifies the SpotifyControls plugin from Vencord
+  </p>
+</section>
 </body>
