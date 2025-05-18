@@ -6,27 +6,25 @@
   */
 
 /* Imports */
-  /* Colouring */
-    @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");
-	/* Member Conunt Fraction */
-		@import url("https://aushevahmad.github.io/awesome-css/modules/vc-membercount.css");
-	/* Hide Title Bar */
-		@import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
-  /* Hide Discovery */
-    @import url("https://raw.githubusercontent.com/KrstlSkll69/vc-snippets/main/OtherStuff/hideGlobalDiscovery.css");
-  /* Declutter */
-    @import url("https://aushevahmad.github.io/awesome-css/modules/declutter.css");
-  /* My Account Settings Grid */
-    @import url("https://dablulite.github.io/css-snippets/AccountDetailsGrid/import.css");
+/* Member Conunt Fraction */
+@import url("https://aushevahmad.github.io/awesome-css/modules/vc-membercount.css");
+/* Hide Title Bar */
+@import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
+/* Hide Discovery */
+@import url("https://raw.githubusercontent.com/KrstlSkll69/vc-snippets/main/OtherStuff/hideGlobalDiscovery.css");
+/* Declutter */
+@import url("https://aushevahmad.github.io/awesome-css/modules/declutter.css");
+/* My Account Settings Grid */
+@import url("https://dablulite.github.io/css-snippets/AccountDetailsGrid/import.css");
 
 /* Fix the spacing of the top, quite scrappy tho */
 .toolbar__9293f {
-  position: relative; /* Only if not already set */
-  left: 80px; /* Increase value to move further right */
+  position: relative;
+  left: 80px;
 }
 .recentsIcon_c99c29 {
-  position: relative; /* or absolute/fixed if already used */
-  left: 40px; /* Adjust the value as needed */
+  position: relative;
+  left: 40px;
 } 
 
 /* Fullscreen Setttings */

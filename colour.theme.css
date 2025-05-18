@@ -1,0 +1,175 @@
+/**
+  * @name        Shay's Modifications
+  * @description A compilation of modifications to the base discord theme
+  * @author      Shay Plays
+  * @others      I have taken some code from others, but their code is from the imports section so you easily find their original code
+  */
+
+/* Imports */
+/* Colouring */
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");
+/* Member Conunt Fraction */
+@import url("https://aushevahmad.github.io/awesome-css/modules/vc-membercount.css");
+/* Hide Title Bar */
+@import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
+/* Hide Discovery */
+@import url("https://raw.githubusercontent.com/KrstlSkll69/vc-snippets/main/OtherStuff/hideGlobalDiscovery.css");
+/* Declutter */
+@import url("https://aushevahmad.github.io/awesome-css/modules/declutter.css");
+/* My Account Settings Grid */
+@import url("https://dablulite.github.io/css-snippets/AccountDetailsGrid/import.css");
+
+/* Fix the spacing of the top, quite scrappy tho */
+.toolbar__9293f {
+  position: relative;
+  left: 80px;
+}
+.recentsIcon_c99c29 {
+  position: relative;
+  left: 40px;
+} 
+
+/* Fullscreen Setttings */
+.sidebarRegion__23e6b {
+  flex: none;
+}
+.contentColumn__23e6b, .customColumn__23e6b {
+    max-width: 100%;
+    min-height: 100%;
+}
+.accountProfileCard__1fed1 .mask__68edb mask circle {
+  display: none;
+}
+.avatar__1fed1 {
+  top: 210px;
+}
+.wrapper__44b0c.avatar__1fed1 {
+  margin-top: -28px;
+}
+
+/* Hide Server Activity */
+[class*='membersGroup']:has([role=button]),
+[class*='member'] [class*='container']:has([class*='badges']) {
+  display: none;
+}
+
+/* Compact User Area */
+.panels_c48ade {
+  left: var(--space-sm)!important;
+  height: 57px!important;
+  width: 56px!important;
+  border-radius: 30px!important;
+  display: flex!important;
+  flex-direction: column;
+  overflow: hidden;
+  transition-duration: 0.35s;
+  z-index: 50000;
+  pointer-events: all;
+  border: 1px solid var(--border-subtle)!important;
+ &:has(.container_e131a9) {
+  border: 1px solid var(--border-normal);
+ }
+}
+.wrapper_e131a9 {
+  height: 0;
+  overflow: hidden;
+}
+.panels_c48ade:hover {
+  width: 300px!important;
+  height: auto!important;
+  display: flex!important;
+  flex-direction: column;
+  border-radius: 15px!important;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.123)) ;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  .wrapper_e131a9 {
+    height: auto!important;
+  }
+}
+.sidebar_c48ade {
+  overflow: visible!important;
+}
+.container__2637a {
+  padding-bottom: 0px!important;
+}
+.scroller__99e7c {
+  margin-bottom: 0px!important;
+}
+.bottom__7aaec {
+  bottom: 0px!important;
+}
+.visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: left;
+  transition: opacity 0.1s ease-in, transform 0.1s ease-in;
+  will-change: opacity, transform;
+}
+.visual-refresh [class^="panels_"]:hover [class^="container__"] [class^="buttons__"] {
+  transform: scale(1);
+  opacity: 1;
+}
+.visual-refresh .panel__5dec7 {
+  display: none;
+}
+.visual-refresh [class^="panels_"]:hover .panel__5dec7 {
+  display: block;
+}
+body:has(.panels_c48ade:not(:hover)) #vc-spotify-player {
+  display: none;
+}
+
+/* Modded Spotify Player - NEEDS VENCORD/EQUICORD PLUGIN */
+#vc-spotify-player {
+    --blur-amount: 4px; 
+    --normal-bg-colour: var(--bg-overlay-floating, var(--background-base-low, var(--background-secondary-alt)));
+
+    position: relative;
+    background: linear-gradient(to bottom, transparent 0%, var(--normal-bg-colour) 100%) !important;
+    overflow: hidden;
+    transition: all 0.4s ease-out;
+    > * {
+      filter: drop-shadow(0 0 10px var(--normal-bg-colour));
+    }
+}
+#vc-spotify-player:hover {
+    --blur-amount: 0px;
+}
+#vc-spotify-player::before,
+#vc-spotify-player::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.4s ease-out;
+}
+#vc-spotify-player::before {
+    background: var(--vc-spotify-track-image);
+    background-position: center top; 
+    background-size: cover; 
+    opacity: 0.5;
+}
+#vc-spotify-player:hover::before {
+    opacity: 0.7;
+}
+#vc-spotify-player::after {
+    backdrop-filter: blur(var(--blur-amount));
+}
+#vc-spotify-progress-bar > [class^="slider_"] > [class^="bar_"] > [class^="barFill_"] {
+    background-color: white !important;
+    background: var(--vc-spotify-track-image);
+    background-size: 1px 100%;
+}
+#vc-spotify-progress-bar > [class^="slider_"] > [class^="bar_"] > [class^="barFill_"]::before {
+    content: "";
+    position: fixed;
+    height: inherit;
+    width: inherit;
+    top: inherit;
+    left: inherit;
+    border-radius: 4px 0 0 4px;
+    backdrop-filter: blur(10px) saturate(4) brightness(1.6);
+}
