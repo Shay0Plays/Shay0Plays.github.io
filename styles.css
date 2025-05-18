@@ -8,6 +8,8 @@ body {
     letter-spacing: 1px;
     margin: 0px;
     overflow: hidden;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 h1 {
@@ -88,15 +90,18 @@ h1 {
     }
 }
 
-/* Social Page */
-
+/* Pages */
 .page-section {
     display: none;
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.5s, transform 0.5s;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 0;
 }
 
+/* Social */
 .page-section.active {
     display: block;
     opacity: 1;
