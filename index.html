@@ -39,7 +39,7 @@
 
 </section>
 <section id="about" class="page-section">
-    <h1>About</h1>
+
         
 
 
@@ -78,22 +78,23 @@
     </ul>
 </section>
 <section id="theme" class="page-section">
-  <h1>Theme</h1>
   <p>
     Here is the custom discord theme I made and use
-    it makes the interface more visually appealing, 
-    including removing unnecessary clutter and changing the colour scheme.
+    it makes the interface more visually appealing.
     <br>
-    It uses the colours of Catppuccin Mocha, with the mauve accent (Just like the website)
-    If you're interested in checking it out or using it yourself, you can use the css below or just enter the url as an online theme.
+    If you're interested in checking it out or using it yourself, you can either
+    <br>
+    use the css below
+    <br>
+    <code id="theme-link">@import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/theme.css')</code>
+    <button onclick="copyThemeLink('theme-link')">Copy</button>
     <br><br>
-    <code id="colour-theme-link">@import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/colour.theme.css')</code>
-    <button onclick="copyThemeLink('colour-theme-link')">Copy</button>
+    or
     <br><br>
-    If you do not want to use this colour scheme then use the one below, it will also make it so that you can use other themes that change the colour of the client on top of this
-    <br><br>
-    <code id="nocolour-theme-link">@import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/nocolour.theme.css')</code>
-    <button onclick="copyThemeLink('nocolour-theme-link')">Copy</button>
+    enter the url as an online theme
+    <br>
+    <code id="link">https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/theme.css</code>
+    <button onclick="copyThemeLink('link')">Copy</button>
     <br><br>
     N.B. This also modifies the SpotifyControls plugin from Vencord
   </p>
@@ -105,19 +106,32 @@
         These are just the textbooks I need for history,
         which I am keeping here for ease of access
         <br><br>
-        <a href="/textbooks/Edexcel GCSE (9-1) History Weimar and Nazi Germany.pdf" target="_blank">
-            <button type="button">Weimar and Nazi Germany</button>
-        </a>
-        <br>
-        <a href="/textbooks/Edexcel GCSE (9-1) History Early Elizabethan England.pdf" target="_blank">
-            <button type="button">Early Elizabethan England</button>
-        </a>
-                <br>
-        <a href="/textbooks/Edexcel GCSE (9-1) History Superpower Relations and the Cold War.pdf" target="_blank">
-            <button type="button">Superpower Relations and the Cold War</button>
-        </a>
-        <br>
-        Medicine Through Time [Coming Never lol, jk when I find a pdf]
-        </center>
+        <a href="/textbooks/Edexcel GCSE (9-1) History Weimar and Nazi Germany.pdf" target="_blank" class="textbook-link">
+    <span class="cover-wrap">
+        <img src="images/weimar.png" alt="Weimar and Nazi Germany Cover" class="cover-img">
+        <span class="cover-text"><button type="button">Weimar and Nazi Germany</button></span>
+    </span>
+</a>
+<br>
+<a href="/textbooks/Edexcel GCSE (9-1) History Early Elizabethan England.pdf" target="_blank" class="textbook-link">
+    <span class="cover-wrap">
+        <img src="images/elizabethan.png" alt="Early Elizabethan England Cover" class="cover-img">
+        <span class="cover-text"><button type="button">Early Elizabethan England</button></span>
+    </span>
+</a>
+<br>
+<a href="/textbooks/Edexcel GCSE (9-1) History Superpower Relations and the Cold War.pdf" target="_blank" class="textbook-link">
+    <span class="cover-wrap">
+        <img src="images/coldwar.png" alt="Superpower Relations and the Cold War Cover" class="cover-img">
+        <span class="cover-text"><button type="button">Superpower Relations and the Cold War</button></span>
+    </span>
+</a>
+<br>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="textbook-link">
+    <span class="cover-wrap">
+        <img src="images/medicine.png" alt="Medicine Through Time Cover" class="cover-img">
+        <span class="cover-text"><button type="button">Medicine Through Time [Coming Never lol, jk when i find a pdf i will put it here]</button></span>
+    </span>
+</a>
 </section>
 </body>
