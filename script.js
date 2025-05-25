@@ -26,22 +26,19 @@ window.addEventListener('DOMContentLoaded', function() {
     let isAnimating = false;
 
     function centerActiveNav() {
-    const navbar = document.querySelector('.navbar');
-    const navbarUl = navbar.querySelector('ul');
-    const activeLink = navbarUl.querySelector('a.active');
-    if (activeLink && navbar && navbarUl) {
-        // Get the center of the navbar (container)
-        const navbarWidth = navbar.offsetWidth;
-        // Get the center of the active link relative to the ul
-        const linkLeft = activeLink.offsetLeft;
-        const linkWidth = activeLink.offsetWidth;
-        const linkCenter = linkLeft + linkWidth / 2;
-        // Calculate the shift needed to center the active link
-        const shift = navbarWidth / 2 - linkCenter;
-        navbarUl.style.transition = "transform 0.4s cubic-bezier(.4,1.4,.6,1)";
-        navbarUl.style.transform = `translateX(${shift}px)`;
+        const navbar = document.querySelector('.navbar');
+        const navbarUl = navbar.querySelector('ul');
+        const activeLink = navbarUl.querySelector('a.active');
+        if (activeLink && navbar && navbarUl) {
+            const navbarWidth = navbar.offsetWidth;
+            const linkLeft = activeLink.offsetLeft;
+            const linkWidth = activeLink.offsetWidth;
+            const linkCenter = linkLeft + linkWidth / 2;
+            const shift = navbarWidth / 2 - linkCenter;
+            navbarUl.style.transition = "transform 0.4s cubic-bezier(.4,1.4,.6,1)";
+            navbarUl.style.transform = `translateX(${shift}px)`;
+        }
     }
-}
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -52,11 +49,12 @@ window.addEventListener('DOMContentLoaded', function() {
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
 
+            centerActiveNav(); // Animate navbar immediately
+
             // Section switching
             const targetId = this.getAttribute('data-section');
             const targetSection = document.getElementById(targetId);
             if (!targetSection || targetSection === currentSection) {
-                centerActiveNav();
                 return;
             }
 
@@ -77,7 +75,6 @@ window.addEventListener('DOMContentLoaded', function() {
                 currentSection.classList.remove(slideOutClass);
                 targetSection.classList.remove(slideInClass);
                 currentSection = targetSection;
-                setTimeout(centerActiveNav, 0);
                 isAnimating = false;
             }, 500);
         });
