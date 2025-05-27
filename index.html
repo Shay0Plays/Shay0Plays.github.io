@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Shay's Shelter</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
@@ -12,128 +13,103 @@
             <span id="splash-quote"></span>
         </div>
     </div>
+    <div class="navbar-hover-area"></div>
     <nav class="navbar">
-    <ul>
-        <li><a href="#" data-section="home" class="active">Home</a></li>
-        <li><a href="#" data-section="about">About</a></li>
-        <li><a href="#" data-section="social">Social</a></li>
-        <li><a href="#" data-section="theme">Theme</a></li>
-        <li><a href="#" data-section="textbooks">Textbooks</a></li>
-    </ul>
-</nav>
-<section id="home" class="page-section active">
-    <h1>Hey Hey!</h1>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-</section>
-<section id="about" class="page-section">
-
-        
-
-
-
-
-
-
-
-
-
-
-</section>
-<section id="social" class="page-section">
-    <h1>Socials</h1>
+        <ul>
+            <li><a href="#" data-section="home" class="active">Home</a></li>
+            <li><a href="#" data-section="about">About</a></li>
+            <li><a href="#" data-section="social">Social</a></li>
+            <li><a href="#" data-section="theme">Theme</a></li>
+            <li><a href="#" data-section="textbooks">Textbooks</a></li>
+        </ul>
+    </nav>
+    <section id="home" class="page-section active">
+        <h1>Hey Hey!</h1>
+    </section>
+    <section id="about" class="page-section">
+    </section>
+    <section id="social" class="page-section">
+        <h1>Socials</h1>
         <ul class="social-links">
             <li>
                 <a href="https://youtube.com/@Shay_Plays" target="_blank">
-                <i class="fab fa-youtube"></i> YouTube
+                    <i class="fab fa-youtube"></i> YouTube
                 </a>
-        </li>
-        <li>
-            <a href="https://discord.com/" target="_blank">
-            <i class="fab fa-discord"></i> Discord
-            </a>
-        </li>
-        <li>
-            <a href="https://open.spotify.com/playlist/2uhFX4THkJKhRHxTRi29AG?si=5eNl3FygQACIArt0OXUgZA" target="_blank">
-            <i class="fab fa-spotify"></i> Spotify
-            </a>
-        </li>
-        <li>
-            <a href="https://www.roblox.com/users/875550742/profile" target="_blank">
-            <i class="fa-solid fa-gamepad"></i> Roblox
-            </a>
-        </li>
-    </ul>
-</section>
-<section id="theme" class="page-section">
-  <p>
-    Here is the custom discord theme I made and use
-    it makes the interface more visually appealing.
-    <br>
-    If you're interested in checking it out or using it yourself, you can either
-    <br>
-    use the css below
-    <br>
-    <code id="theme-link">@import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/theme.css')</code>
-    <br>
-    <button onclick="copyThemeLink('theme-link')">Copy</button>
-    <br><br>
-    or
-    <br><br>
-    enter the url as an online theme
-    <br>
-    <code id="link">https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/theme.css</code>
-    <br>
-    <button onclick="copyThemeLink('link')">Copy</button>
-    <br><br>
-    N.B. This also modifies the SpotifyControls plugin from Vencord
-  </p>
-</section>
-<section id="textbooks" class="page-section">
-    <h1>History Textbooks</h1>
-    <p>
-        <center>
-        These are just the textbooks I need for history,
-        which I am keeping here for ease of access
-        <br><br>
+            </li>
+            <li>
+                <a href="https://discord.com/" target="_blank">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+            </li>
+            <li>
+                <a href="https://open.spotify.com/playlist/2uhFX4THkJKhRHxTRi29AG?si=5eNl3FygQACIArt0OXUgZA" target="_blank">
+                    <i class="fab fa-spotify"></i> Spotify
+                </a>
+            </li>
+            <li>
+                <a href="https://www.roblox.com/users/875550742/profile" target="_blank">
+                    <i class="fa-solid fa-gamepad"></i> Roblox
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section id="theme" class="page-section">
+        <h1>Theme</h1>
+        <p>
+            Here is the custom discord theme I made and use. It makes the interface more visually appealing.<br>
+            If you're interested in checking it out or using it yourself, you can either<br>
+            use the css below<br>
+            <code id="theme-link">@import url('https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/theme.css')</code>
+            <br>
+            <button onclick="copyThemeLink('theme-link')">Copy</button>
+            <br><br>
+            or<br><br>
+            enter the url as an online theme<br>
+            <code id="link">https://raw.githubusercontent.com/Shay0Plays/Shay0Plays.github.io/refs/heads/main/theme.css</code>
+            <br>
+            <button onclick="copyThemeLink('link')">Copy</button>
+            <br><br>
+            N.B. This also modifies the SpotifyControls plugin from Vencord
+        </p>
+    </section>
+    <section id="textbooks" class="page-section">
+        <h1>History Textbooks</h1>
+        <p style="text-align:center;">
+            These are just the textbooks I need for history, which I am keeping here for ease of access
+        </p>
+        <br><br><br><br>
         <a href="/textbooks/Edexcel GCSE (9-1) History Weimar and Nazi Germany.pdf" target="_blank" class="textbook-link">
-    <span class="cover-wrap">
-        <img src="images/weimar.png" alt="Weimar and Nazi Germany Cover" class="cover-img">
-        <span class="cover-text"><button type="button">Weimar and Nazi Germany</button></span>
-    </span>
-</a>
-<br>
-<a href="/textbooks/Edexcel GCSE (9-1) History Early Elizabethan England.pdf" target="_blank" class="textbook-link">
-    <span class="cover-wrap">
-        <img src="images/elizabethan.png" alt="Early Elizabethan England Cover" class="cover-img">
-        <span class="cover-text"><button type="button">Early Elizabethan England</button></span>
-    </span>
-</a>
-<br>
-<a href="/textbooks/Edexcel GCSE (9-1) History Superpower Relations and the Cold War.pdf" target="_blank" class="textbook-link">
-    <span class="cover-wrap">
-        <img src="images/coldwar.png" alt="Superpower Relations and the Cold War Cover" class="cover-img">
-        <span class="cover-text"><button type="button">Superpower Relations and the Cold War</button></span>
-    </span>
-</a>
-<br>
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="textbook-link">
-    <span class="cover-wrap">
-        <img src="images/medicine.png" alt="Medicine Through Time Cover" class="cover-img">
-        <span class="cover-text"><button type="button">Medicine Through Time [Coming Never lol, jk when i find a pdf i will put it here]</button></span>
-    </span>
-</a>
-</section>
+            <span class="cover-wrap">
+                <span class="cover-img-wrap">
+                    <img src="images/weimar.png" alt="Weimar and Nazi Germany Cover" class="cover-img">
+                </span>
+                <span class="cover-text"><button type="button">Weimar and Nazi Germany</button></span>
+            </span>
+        </a>
+        <a href="/textbooks/Edexcel GCSE (9-1) History Early Elizabethan England.pdf" target="_blank" class="textbook-link">
+            <span class="cover-wrap">
+                <span class="cover-img-wrap">
+                    <img src="images/elizabethan.png" alt="Early Elizabethan England Cover" class="cover-img">
+                </span>
+                <span class="cover-text"><button type="button">Early Elizabethan England</button></span>
+            </span>
+        </a>
+        <a href="/textbooks/Edexcel GCSE (9-1) History Superpower Relations and the Cold War.pdf" target="_blank" class="textbook-link">
+            <span class="cover-wrap">
+                <span class="cover-img-wrap">
+                    <img src="images/coldwar.png" alt="Superpower Relations and the Cold War Cover" class="cover-img">
+                </span>
+                <span class="cover-text"><button type="button">Superpower Relations and the Cold War</button></span>
+            </span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="textbook-link">
+            <span class="cover-wrap">
+                <span class="cover-img-wrap">
+                    <img src="images/medicine.png" alt="Medicine Through Time Cover" class="cover-img">
+                </span>
+                <span class="cover-text"><button type="button">Medicine Through Time <br> [Coming Never] <br> lol, jk when i find a pdf i will put it here</button></span>
+            </span>
+        </a>
+    </section>
 </body>
+</html>

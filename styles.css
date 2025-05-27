@@ -8,7 +8,7 @@ body {
     font-weight: 100;
     letter-spacing: 1px;
     margin: 0;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
 h1 {
@@ -19,14 +19,35 @@ h1 {
     color: #cba6f7;
 }
 
-/* Navigation Bar */
+/* NAVBAR: Only visible on hover at the top of the page */
+.navbar-hover-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 48px; /* Match your navbar height */
+    z-index: 100;
+}
+
 .navbar {
     background: #11111b;
     padding: 0.5em 0;
     display: flex;
     justify-content: center;
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 101;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.navbar-hover-area:hover + .navbar,
+.navbar:focus-within {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .navbar ul {
@@ -41,12 +62,10 @@ h1 {
     min-width: 0;
     transition: transform 0.4s cubic-bezier(.4,1.4,.6,1);
 }
-
 .navbar li {
     margin: 0 1.5em;
     flex: 0 0 auto;
 }
-
 .navbar ul li a {
     color: #b1b9d4;
     opacity: 0.5;
@@ -55,13 +74,11 @@ h1 {
     font-size: 1.1em;
     transition: opacity 0.2s, color 0.2s, text-shadow 0.2s;
 }
-
 .navbar ul li a:hover,
 .navbar ul li a.active {
     color: #cba6f7;
     opacity: 1;
 }
-
 .navbar ul li a.active {
     font-size: 1.25em;
     padding: 0.2em 0.6em;
@@ -207,6 +224,93 @@ h1 {
     color: #b1b9d4;
 }
 
+/* Textbook Covers with Card Tilt, Pop-out Text, and Staggered Layout */
+#textbooks .textbook-link {
+    display: block;
+    margin-bottom: 1.5em;
+    margin-left: 0;
+    margin-top: 0;
+    width: max-content;
+}
+
+/* Staircase for first two, right-align for last two */
+#textbooks a:nth-of-type(1) { margin-left: 0em;  margin-top: 0em; }
+#textbooks a:nth-of-type(2) { margin-left: 3em;  margin-top: 1em; }
+#textbooks a:nth-of-type(3) { margin-left: 6em;  margin-top: 2em; }
+#textbooks a:nth-of-type(4) { margin-left: 9em;  margin-top: 3em; }
+
+/* Pop out text for all four covers */
+#textbooks a:nth-of-type(1) .cover-text,
+#textbooks a:nth-of-type(2) .cover-text,
+#textbooks a:nth-of-type(3) .cover-text,
+#textbooks a:nth-of-type(4) .cover-text {
+    transform: translateX(-60%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(.4,1.4,.6,1), opacity 0.5s;
+}
+
+/* On hover/focus, pop out further to the right for all covers */
+#textbooks a:nth-of-type(1):hover .cover-text,
+#textbooks a:nth-of-type(1):focus .cover-text,
+#textbooks a:nth-of-type(2):hover .cover-text,
+#textbooks a:nth-of-type(2):focus .cover-text,
+#textbooks a:nth-of-type(3):hover .cover-text,
+#textbooks a:nth-of-type(3):focus .cover-text,
+#textbooks a:nth-of-type(4):hover .cover-text,
+#textbooks a:nth-of-type(4):focus .cover-text {
+    transform: translateX(150px); /* Pop out even further */
+    opacity: 1;
+}
+
+.textbook-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.cover-wrap {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 8em;
+    perspective: 600px;
+    overflow: visible;
+}
+.cover-img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 8em;
+    border-radius: 0.3em;
+    overflow: visible;
+}
+.cover-img {
+    height: 12em;
+    width: auto;
+    display: block;
+    border-radius: 0.3em;
+    box-shadow: 0 2px 16px #0008;
+    position: relative;
+    transition: filter 0.3s, transform 0.4s cubic-bezier(.4,1.4,.6,1);
+    will-change: transform;
+}
+
+.cover-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 0.5em;
+    white-space: nowrap;
+    font-size: 2em;
+    font-weight: 700;
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(.4,1.4,.6,1), opacity 0.5s;
+}
+.cover-text button {
+    pointer-events: auto;
+}
+
 /* Button Styles */
 button {
     background: none;
@@ -224,56 +328,15 @@ button:hover {
     color: #b1b9d4;
 }
 
-
-.textbook-link {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 1.5em;
-    text-decoration: none;
-}
-
-.cover-wrap {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 8em; /* match image height */
-}
-
-.cover-img {
-    height: 8em;
-    width: auto;
-    z-index: 2;
-    box-shadow: 0 2px 16px #0008;
-    border-radius: 0.3em;
-    position: relative;
-    transition: filter 0.3s, transform 0.3s; /* Add transform here */
-}
-
-.cover-text {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-left: 0.5em;
-    z-index: 1;
-    /* Start hidden behind the cover */
-    transform: translateX(-60%);
-    opacity: 0;
-    transition: transform 0.5s cubic-bezier(.4,1.4,.6,1), opacity 0.5s;
-    white-space: nowrap;
-}
-
-.textbook-link:hover .cover-text,
-.textbook-link:focus .cover-text {
-    transform: translateX(90px);
-    opacity: 1;
-}
-
-.textbook-link:hover .cover-img,
-.textbook-link:focus .cover-img {
-    filter: brightness(0.85) blur(1px);
+/* Blur all covers when any .textbook-link is hovered */
+#textbooks:hover .cover-img {
+    filter: blur(4px) brightness(0.8);
     transition: filter 0.3s;
-    transform: translateX(-10px);
+}
+
+/* Remove blur from the hovered cover */
+#textbooks .textbook-link:hover .cover-img,
+#textbooks .textbook-link:focus-within .cover-img {
+    filter: none;
+    transition: filter 0.3s;
 }

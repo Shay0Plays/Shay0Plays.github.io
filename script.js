@@ -83,6 +83,33 @@ window.addEventListener('DOMContentLoaded', function() {
     // Center on load and resize
     centerActiveNav();
     window.addEventListener('resize', centerActiveNav);
+
+    // Card tilt effect for textbook covers (only when hovering the image, not the text)
+    document.querySelectorAll('.cover-img-wrap').forEach(wrap => {
+        const img = wrap.querySelector('.cover-img');
+        if (!img) return;
+
+        wrap.addEventListener('mousemove', e => {
+            const rect = wrap.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const percentX = (x - centerX) / centerX;
+            const percentY = (y - centerY) / centerY;
+            const maxTilt = 18;
+            const tiltX = maxTilt * percentY * -1;
+            const tiltY = maxTilt * percentX;
+
+            img.style.transform = `translateX(-10px) rotateY(${tiltY}deg) rotateX(${tiltX}deg) scale(1.04)`;
+            img.style.filter = "";
+        });
+
+        wrap.addEventListener('mouseleave', () => {
+            img.style.transform = "";
+            img.style.filter = "";
+        });
+    });
 });
 
 // Copy theme link function
