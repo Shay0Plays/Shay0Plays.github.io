@@ -4,7 +4,7 @@ body {
     background-color: #181825;
     font-family: "Figtree", sans-serif;
     color: #b1b9d4;
-    font-size: 14px;
+    font-size: 22px; /* Make normal text bigger */
     font-weight: 100;
     letter-spacing: 1px;
     margin: 0;
@@ -37,6 +37,10 @@ h1 {
     opacity: 1;
     pointer-events: auto;
     transition: none;
+}
+
+.navbar ul li a {
+    font-size: 1.1em !important;
 }
 
 .navbar ul {
@@ -333,4 +337,81 @@ button:hover {
 #textbooks .textbook-link:focus-within .cover-img {
     filter: none;
     transition: filter 0.3s;
+}
+
+/* Make only the age number bigger */
+.age-number {
+    font-size: 25em;
+    font-weight: bold;
+    line-height: 1.1;
+    display: inline-block;
+    overflow: visible;
+}
+
+/* Make the current (center) number the website's pink shade */
+.age-number:nth-child(2) {
+    color: #cba6f7 !important;
+}
+
+/* Center the age numbers horizontally and vertically */
+.age-slide {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+    overflow: hidden !important;
+    justify-content: center;
+    align-items: center;      /* Center vertically */
+    display: flex;
+    position: relative;
+    padding: 0;
+    background: none;
+    margin-top: 13em;
+    margin-bottom: 13em;
+    height: 1.1em;
+    z-index: 1;
+}
+
+.age-slide-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;      /* Center numbers vertically */
+    justify-content: center;  /* Center numbers horizontally */
+    position: relative;
+    z-index: 1;
+}
+
+/* Remove overflow: visible from these to prevent accidental leaks */
+.page-section,
+.age-slide-inner {
+    overflow: initial !important;
+    height: 1.1em;
+    min-height: 1.1em;
+}
+
+/* Make the side numbers even bigger */
+.age-number:not(:nth-child(2)) {
+    font-size: 15em !important; /* Increase as needed */
+    opacity: 0.5;
+    filter: blur(2px);
+}
+
+/* Make sure the section/container allows overflow and is tall enough */
+.page-section,
+.age-slide,
+.age-slide-inner {
+    overflow: visible !important;
+    height: 1.1em; /* or auto, but 1.1em fits a 25em font-size number */
+    min-height: 1.1em;
+}
+
+/* If you use a wrapper, make sure it allows overflow too */
+.cover-wrap,
+.cover-img-wrap {
+    overflow: visible !important;
+}
+
+/* Make the age-slide tall enough for the number */
+.age-slide {
+    height: 1.1em; /* or try 1.2em for extra space */
+    align-items: flex-end; /* aligns the baseline of the number with the container */
 }

@@ -12,10 +12,20 @@ window.addEventListener('DOMContentLoaded', function() {
     ];
     if (quoteSpan) {
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-        quoteSpan.textContent = randomQuote;
+        // Letter-by-letter animation
+        quoteSpan.textContent = "";
+        let i = 0;
+        function typeLetter() {
+            if (i <= randomQuote.length) {
+                quoteSpan.textContent = randomQuote.slice(0, i);
+                i++;
+                setTimeout(typeLetter, 18); // Adjust speed here (ms per letter)
+            }
+        }
+        typeLetter();
     }
     if (splash) {
-        setTimeout(() => splash.classList.add('hide'), 2500);
+        setTimeout(() => splash.classList.add('hide'), 2500 + (quoteSpan ? quotes[0].length * 18 : 0));
         splash.addEventListener('click', () => splash.classList.add('hide'));
     }
 
@@ -110,10 +120,165 @@ window.addEventListener('DOMContentLoaded', function() {
             img.style.filter = "";
         });
     });
+
+    // --- Age animation on About tab click ---
+    let ageAnimated = false;
+    const ageSpan = document.getElementById("age");
+    const aboutLink = document.querySelector('.navbar a[data-section="about"]');
+    if (aboutLink && ageSpan) {
+        aboutLink.addEventListener('click', function() {
+            if (!ageAnimated) {
+                const age = calculateAge("2009-12-02"); // <-- your birthdate
+                animateAge(age, ageSpan);
+                ageAnimated = true;
+            }
+        });
+    }
 });
 
 // Copy theme link function
 function copyThemeLink(id) {
     const code = document.getElementById(id).innerText;
     navigator.clipboard.writeText(code);
+}
+
+function calculateAge(birthDateString) {
+    const today = new Date();
+    const birthDate = new Date(birthDateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+function getIndefiniteArticle(number) {
+    // Use "an" if the age starts with 8 or 11, 18, etc. (for "eight", "eighteen", "eleven")
+    const ageStr = number.toString();
+    const firstDigit = ageStr[0];
+    if (
+        ageStr === "11" ||
+        ageStr === "18" ||
+        firstDigit === "8"
+    ) {
+        return "an";
+    }
+    return "a";
+}
+
+function animateAge(targetAge, element) {
+    let current = 1;
+    const article = getIndefiniteArticle(targetAge);
+    // Only unique, playful, or decorative fonts
+    const fonts = [
+        "'Comic Sans MS', cursive, sans-serif",
+        "'Impact', fantasy, sans-serif",
+        "'Papyrus', fantasy, sans-serif",
+        "'Brush Script MT', cursive, sans-serif",
+        "'Copperplate', fantasy, serif",
+        "'Bangers', cursive, sans-serif",
+        "'Orbitron', sans-serif",
+        "'Permanent Marker', cursive, sans-serif",
+        "'Press Start 2P', cursive, monospace",
+        "'Creepster', cursive, sans-serif",
+        "'Lobster', cursive, sans-serif",
+        "'Figtree', sans-serif"
+    ];
+
+    // Inject CSS for smooth transitions if not already present
+    if (!document.getElementById('age-slide-style')) {
+        const style = document.createElement('style');
+        style.id = 'age-slide-style';
+        style.textContent = `
+            .age-slide {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                width: 8em;
+                position: relative;
+                padding: 0 2em;
+            }
+            .age-slide-inner {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .age-number {
+                transition: 
+                    font-size 0.35s cubic-bezier(.4,1.4,.6,1),
+                    opacity 0.35s cubic-bezier(.4,1.4,.6,1),
+                    filter 0.35s cubic-bezier(.4,1.4,.6,1),
+                    font-family 0.35s cubic-bezier(.4,1.4,.6,1),
+                    color 0.35s cubic-bezier(.4,1.4,.6,1);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function getRandomFont(excludeFont) {
+        let font;
+        do {
+            font = fonts[Math.floor(Math.random() * (fonts.length - 1))];
+        } while (font === excludeFont);
+        return font;
+    }
+
+    function step() {
+        // Only show previous, current, and next number (no sliding)
+        let numbersHtml = '';
+        for (let i = current - 1; i <= current + 1; i++) {
+            if (i < 1 || i > targetAge + 1) continue;
+            let style = "min-width:1.5em;text-align:center;";
+            if (i === current) {
+                let centerFont = (current === targetAge) ? fonts[fonts.length - 1] : fonts[Math.floor(Math.random() * (fonts.length - 1))];
+                style += `font-family:${centerFont};z-index:2;`;
+            } else {
+                style += `font-size:2em;opacity:0.5;filter:blur(2px);font-family:${getRandomFont(fonts[fonts.length - 1])};z-index:1;`;
+            }
+            numbersHtml += `<span class="age-number" style="${style}">${i}</span>`;
+        }
+
+        element.innerHTML = `
+            ${article}<br>
+            <div class="age-slide">
+                <div class="age-slide-inner">
+                    ${numbersHtml}
+                </div>
+            </div>
+        `;
+
+        if (current < targetAge) {
+            current++;
+            const progress = current / targetAge;
+            const minDelay = 25;
+            const maxDelay = 250;
+            const delay = minDelay + (maxDelay - minDelay) * progress;
+            setTimeout(step, delay);
+        } else {
+            // Final state: show targetAge centered, targetAge+1 on right, both in normal font
+            let finalHtml = '';
+            for (let i = targetAge - 1; i <= targetAge + 1; i++) {
+                if (i < 1 || i > targetAge + 1) continue;
+                let style = "min-width:1.5em;text-align:center;";
+                if (i === targetAge) {
+                    style += `font-family:${fonts[fonts.length - 1]};z-index:2;`;
+                } else {
+                    style += `font-size:2em;opacity:0.5;filter:blur(2px);font-family:${getRandomFont(fonts[fonts.length - 1])};z-index:1;`;
+                }
+                finalHtml += `<span class="age-number" style="${style}">${i}</span>`;
+            }
+            element.innerHTML = `
+                ${article}<br>
+                <div class="age-slide">
+                    <div class="age-slide-inner">
+                        ${finalHtml}
+                    </div>
+                </div>
+            `;
+        }
+    }
+    step();
 }
