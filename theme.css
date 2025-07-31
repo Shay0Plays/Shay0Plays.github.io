@@ -26,7 +26,7 @@
 }
 .recentsIcon_c99c29 {
   position: relative;
-  left: 40px;
+  left: 33px;
 } 
 
 /* Fullscreen Setttings */
@@ -34,7 +34,7 @@
   flex: none;
 }
 .contentColumn__23e6b, .customColumn__23e6b {
-    max-width: 100%;
+    max-width: 91%;
     min-height: 100%;
 }
 .accountProfileCard__1fed1 .mask__68edb mask circle {
@@ -44,7 +44,7 @@
   top: 210px;
 }
 .wrapper__44b0c.avatar__1fed1 {
-  margin-top: -28px;
+  margin-top: -38px;
 }
 
 /* Hide Server Activity */
