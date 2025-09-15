@@ -15,6 +15,44 @@ ul {
 html {
   height: 100vh;
   border: 20px solid var(--foreground);
-  border-radius: 0px;
-  border-inline-start: #11111b;
+  border-radius: 10px;
 }
+
+
+/* */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #27191b; /* Border color */
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    .screen-border {
+      position: fixed;
+      inset: 0;
+      border-radius: 32px;           /* Controls roundness */
+      border: 8px solid #27191b;     /* Border color/thickness */
+      box-sizing: border-box;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      background: #181818;           /* Inner background */
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+    }
+    /* Demo sidebar (optional) */
+    .sidebar {
+      width: 80px;
+      background: #2c2023;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 16px;
+      color: #fff;
+      /* For demo only */
+    }

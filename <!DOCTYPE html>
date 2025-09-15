@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shay's Shelter</title>
+  <style>
+    :root{
+    --white: #b1b9d4;
+    --accent: #cba6f7;
+    --accent2: #edc491;
+    --background1: #1e1e2e;
+    --background2: #11111b;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--background2); /* Border color */
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    .screen-border {
+      position: fixed;
+      inset: 0;
+      border-radius: 32px;           /* Controls roundness */
+      border: 8px solid var(--background2);     /* Border color/thickness */
+      box-sizing: border-box;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      background: var(--background1);           /* Inner background */
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+    }
+    /* Demo sidebar (optional) */
+    .sidebar {
+      width: 80px;
+      background: var(--background2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 16px;
+      color: #fff;
+      /* For demo only */
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-border">
+    <div class="sidebar">
+      <!-- Sidebar icons/elements go here -->
+      <span style="font-size:2em;color: var(--accent2);">aa</span>
+    </div>
+    <div class="content">
+      <!-- Your main content goes here -->
+    </div>
+  </div>
+</body>
+</html>
