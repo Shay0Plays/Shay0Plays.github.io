@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', function() {
         "Lust will cause a man to want something, even if he has everything",
         "Never argue with an idiot. He will drag you down to his level and beat you with experience.",
         "All truths are easy to understand once they are discovered; the point is to discover them.",
+        "Esaam...",
     ];
     if (quoteSpan) {
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
