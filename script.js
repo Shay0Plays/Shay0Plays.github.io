@@ -10,6 +10,8 @@ window.addEventListener('DOMContentLoaded', function() {
         "Never argue with an idiot. He will drag you down to his level and beat you with experience.",
         "All truths are easy to understand once they are discovered; the point is to discover them.",
         "Esaam...",
+        "Griddying will cause a mans downfall- Umar the Sigma Jumani",
+        "Al-Kebab",
     ];
     if (quoteSpan) {
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
